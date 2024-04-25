@@ -1,0 +1,22 @@
+name: proyecto_final
+description: "A new Flutter project."
+publish_to: 'none'  # Use esta línea para evitar publicar accidentalmente el paquete.
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  http: ^0.13.4  # Agregada la dependencia para peticiones HTTP
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

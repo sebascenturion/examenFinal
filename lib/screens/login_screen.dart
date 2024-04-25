@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'posts_screen.dart'; // Asegúrate de que este archivo esté correctamente creado y enlazado.
+import 'main_screen.dart'; // Asegúrate de que este archivo esté correctamente creado y enlazado.
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -14,9 +14,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void iniciarSesion() {
     if (claveFormulario.currentState!.validate()) {
+      // Navega al MainScreen si el formulario es válido
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => PostsScreen()), // Asegúrate de que esta clase es correcta.
+        MaterialPageRoute(builder: (context) => MainScreen()),
       );
     }
   }
@@ -35,7 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 TextFormField(
                   controller: controladorEmail,
-                  decoration: InputDecoration(labelText: 'Correo Electrónico'),
+                  decoration: InputDecoration(
+                    labelText: 'Correo Electrónico',
+                    prefixIcon: Icon(Icons.email),
+                  ),
                   keyboardType: TextInputType.emailAddress,
                   validator: (valor) {
                     if (valor == null || valor.isEmpty) {
@@ -52,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: controladorContrasena,
                   decoration: InputDecoration(
                     labelText: 'Contraseña',
+                    prefixIcon: Icon(Icons.lock),
                     suffixIcon: IconButton(
                       icon: Icon(
                         contrasenaVisible ? Icons.visibility_off : Icons.visibility,

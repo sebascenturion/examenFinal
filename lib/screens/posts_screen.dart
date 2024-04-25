@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'todos_screen.dart';
 import 'comments_screen.dart';
+import 'profile_screen.dart';
 
 class PostsScreen extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class PostsScreen extends StatefulWidget {
 class _PostsScreenState extends State<PostsScreen> {
   late List _posts;
   bool _isLoading = true;
+  int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -29,6 +31,31 @@ class _PostsScreenState extends State<PostsScreen> {
       });
     } else {
       throw Exception('Failed to load posts');
+    }
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    switch (index) {
+      case 0:
+        // Already on Posts Screen, do nothing
+        break;
+      case 1:
+        // Navigate to To Dos Screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TodosScreen()),
+        );
+        break;
+      case 2:
+        // Navigate to Profile Screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileScreen()),
+        );
+        break;
     }
   }
 
@@ -59,6 +86,27 @@ class _PostsScreenState extends State<PostsScreen> {
                 );
               },
             ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Posts',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_circle),
+            label: 'To do',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.lightBlue,
+        unselectedItemColor: Colors.grey[300],
+        onTap: _onItemTapped,
+        backgroundColor: Colors.white,
+      ),
     );
   }
 }

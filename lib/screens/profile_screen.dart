@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("User Profile"),
+        title: Text("Perfil del Usuario"),
       ),
       body: Center(
         child: Column(
@@ -16,11 +17,11 @@ class ProfileScreen extends StatelessWidget {
               backgroundImage: AssetImage('assets/images/user_avatar.png'), // Asegúrate de tener esta imagen en tus assets
             ),
             SizedBox(height: 10),
-            Text('John Doe', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            Text('Sebastián Centurión', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             SizedBox(height: 5),
-            Text('johndoe@example.com', style: TextStyle(fontSize: 16)),
+            Text('sebita@prueba.com', style: TextStyle(fontSize: 16)),
             SizedBox(height: 20),
-            Text('About Me', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text('Biografía', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -28,6 +29,16 @@ class ProfileScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16),
               ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Función para cerrar sesión y navegar a la pantalla de login
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: Text('Cerrar Sesión'),
             ),
           ],
         ),

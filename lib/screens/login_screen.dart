@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_screen.dart'; // Asegúrate de que este archivo esté correctamente creado y enlazado.
+import 'main_screen.dart'; 
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -82,7 +82,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: iniciarSesion,
-                  child: Text('Ingresar'),
+                  child: Text(
+                    'Ingresar',
+                    style: TextStyle(color: Colors.blue), // Texto azul
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 175, 222, 244),
+                    elevation: 2, // Elevación del botón
+                    shape: RoundedRectangleBorder( // Forma del botón
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
                 ),
               ],
             ),

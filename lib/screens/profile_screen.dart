@@ -38,7 +38,17 @@ class ProfileScreen extends StatelessWidget {
                   (Route<dynamic> route) => false,
                 );
               },
-              child: Text('Cerrar Sesión'),
+              child: Text(
+                'Cerrar Sesión',
+                style: TextStyle(color: Colors.blue),
+              ),
+              style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 175, 222, 244),
+                elevation: 2, 
+                shape: RoundedRectangleBorder( 
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
             ),
           ],
         ),

@@ -33,7 +33,7 @@ class _TodosScreenState extends State<TodosScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("To Dos"),
+        title: Text("To Do"),
       ),
       body: _isLoading
           ? Center(child: CircularProgressIndicator())

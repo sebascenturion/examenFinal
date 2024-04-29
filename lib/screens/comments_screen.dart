@@ -54,7 +54,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   child: ListTile(
                     title: Text(_comments[index]['name']),
                     subtitle: Text("${_comments[index]['body']}\n\nDe: ${_comments[index]['email']}"),
-                    isThreeLine: true,  // Permite más espacio para subtítulos multilínea
+                    isThreeLine: true, 
                   ),
                 );
               },
